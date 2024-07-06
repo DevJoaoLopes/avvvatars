@@ -1,4 +1,4 @@
-/// <reference types="react" />
+import * as React from 'react';
 declare type Style = 'character' | 'shape';
 interface Params {
     displayValue?: string;
@@ -11,5 +11,5 @@ interface Params {
     borderColor?: string;
     radius?: number;
 }
-export default function Avvvatars(params: Params): JSX.Element;
+export default function Avvvatars(params: Readonly<Params>): React.JSX.Element;
 export {};

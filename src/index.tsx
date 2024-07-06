@@ -7,7 +7,7 @@ import { styled, setup } from 'goober'
 // initialize goober
 setup(React.createElement, undefined, undefined, (props: any) => {
   for (let prop in props) {
-      if (prop[0] === '$') {
+      if (prop.startsWith('$')) {
           delete props[prop];
       }
   }
@@ -38,7 +38,7 @@ interface WrapperProps {
 const Wrapper = styled('div')<WrapperProps>`
   width: ${p => p.size}px;
   height: ${p => p.size}px;
-  border-radius: ${p => p.$radius || p.size}px;
+  border-radius: ${p => p.$radius ?? p.size}px;
   background-color: #${p => p.color};
 
   ${ p => p.$border &&
@@ -97,7 +97,7 @@ interface Params
   radius?: number
 }
 
-export default function Avvvatars(params: Params)
+export default function Avvvatars(params: Readonly<Params>)
 {
   const { 
     style = DEFAULTS.style,
@@ -112,7 +112,7 @@ export default function Avvvatars(params: Params)
   } = params
 
   // get first two letters
-  const name = String(displayValue || value).substring(0, 2);
+  const name = String(displayValue ?? value).substring(0, 2);
 
   // generate unique random for given value
   // there is 20 colors in array so generate between 0 and 19

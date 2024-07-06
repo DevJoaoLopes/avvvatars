@@ -25,7 +25,7 @@ export const ShapeWrapper = styled('span')<Props>`
 
 export const shapeList = Object.keys(shapes)
 
-export default function Shape(props: Props){
+export default function Shape(props: Readonly<Props>){
   const { name, size = 24 } = props
 
   const Tag = (shapes as ShapeList)[name]
