@@ -1,8 +1,8 @@
-import * as React from 'react';
-import { ComponentType } from 'react'
+import React from 'react';
+import type { ComponentType } from 'react'
 import { styled } from 'goober'
 import * as shapes from './shapes'
-import { ShapeProps } from './shapes'
+import type { ShapeProps } from './shapes'
 
 export type ShapeNames = keyof typeof shapes
 interface ShapeList {
@@ -19,7 +19,6 @@ export const ShapeWrapper = styled('span')<Props>`
   display: inline-flex;
   align-items: center;
   vertical-align: middle;
-
   color: #${p => p.color || 'currentColor'};
 `
 
@@ -36,7 +35,7 @@ export default function Shape(props: Readonly<Props>){
   }
 
   return (
-    <ShapeWrapper {...props} role="img">
+    <ShapeWrapper {...props}>
       <Tag
         width={size}
       />

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import * as shapes from './shapes';
 export declare type ShapeNames = keyof typeof shapes;
 export interface Props {

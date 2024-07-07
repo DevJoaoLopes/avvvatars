@@ -1,4 +1,4 @@
-import { createElement } from 'react';
+import React__default, { createElement } from 'react';
 import { styled, setup } from 'goober';
 
 function _extends() {
@@ -916,7 +916,7 @@ var shapes = {
 };
 
 var _templateObject;
-var ShapeWrapper = /*#__PURE__*/styled('span')(_templateObject || (_templateObject = /*#__PURE__*/_taggedTemplateLiteralLoose(["\n  display: inline-flex;\n  align-items: center;\n  vertical-align: middle;\n\n  color: #", ";\n"])), function (p) {
+var ShapeWrapper = /*#__PURE__*/styled('span')(_templateObject || (_templateObject = /*#__PURE__*/_taggedTemplateLiteralLoose(["\n  display: inline-flex;\n  align-items: center;\n  vertical-align: middle;\n  color: #", ";\n"])), function (p) {
   return p.color || 'currentColor';
 });
 function Shape(props) {
@@ -927,9 +927,7 @@ function Shape(props) {
   if (!Tag) {
     return null;
   }
-  return createElement(ShapeWrapper, Object.assign({}, props, {
-    role: "img"
-  }), createElement(Tag, {
+  return React__default.createElement(ShapeWrapper, Object.assign({}, props), React__default.createElement(Tag, {
     width: size
   }));
 }
