@@ -4,8 +4,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
-var React = require('react');
-var React__default = _interopDefault(React);
+var React = _interopDefault(require('react'));
 var goober = require('goober');
 
 function _extends() {
@@ -858,6 +857,8 @@ var Shape60 = function Shape60(_ref60) {
   }))));
 };
 
+
+
 var shapes = {
   __proto__: null,
   Shape1: Shape1,
@@ -934,7 +935,7 @@ function Shape(props) {
   if (!Tag) {
     return null;
   }
-  return React__default.createElement(ShapeWrapper, Object.assign({}, props), React__default.createElement(Tag, {
+  return React.createElement(ShapeWrapper, Object.assign({}, props), React.createElement(Tag, {
     width: size
   }));
 }
@@ -969,7 +970,7 @@ var Wrapper = /*#__PURE__*/goober.styled('div')(_templateObject$1 || (_templateO
 }, function (p) {
   return p.$shadow && "\n    box-shadow: \n      0px 3px 8px rgba(18, 18, 18, 0.04),  \n      0px 1px 1px rgba(18, 18, 18, 0.02);\n  ";
 });
-var Text = /*#__PURE__*/goober.styled('p')(_templateObject2 || (_templateObject2 = /*#__PURE__*/_taggedTemplateLiteralLoose(["\n  /* Reset */\n  margin: 0;\n  padding: 0;\n  text-align: center;\n  box-sizing: border-box;\n\n  font-family: -apple-system, BlinkMacSystemFont, \"Inter\", \"Segoe UI\", Roboto, sans-serif;\n\n  font-size: ", "px;\n  color: #", ";\n  line-height: 0;\n  text-transform: uppercase;\n  font-weight: 500;\n"])), function (p) {
+var Text = /*#__PURE__*/goober.styled('p')(_templateObject2 || (_templateObject2 = /*#__PURE__*/_taggedTemplateLiteralLoose(["\n  margin: 0;\n  padding: 0;\n  text-align: center;\n  box-sizing: border-box;\n  font-family: -apple-system, BlinkMacSystemFont, \"Inter\", \"Segoe UI\", Roboto, sans-serif;\n  font-size: ", "px;\n  color: #", ";\n  line-height: 0;\n  text-transform: uppercase;\n  font-weight: 500;\n"])), function (p) {
   return Math.round(p.size / 100 * 37);
 }, function (p) {
   return p.color;
@@ -1001,6 +1002,8 @@ function Avvvatars(params) {
     min: 1,
     max: 60
   });
+  var isCharacter = style === 'character';
+  var isShape = style === 'shape';
   return React.createElement(Wrapper, {
     size: size,
     color: BACKGROUND_COLORS[key],
@@ -1009,10 +1012,10 @@ function Avvvatars(params) {
     "$borderSize": borderSize,
     "$borderColor": borderColor,
     "$radius": radius
-  }, style === 'character' ? React.createElement(Text, {
+  }, isCharacter && React.createElement(Text, {
     color: TEXT_COLORS[key],
     size: size
-  }, name) : React.createElement(Shape, {
+  }, name), isShape && React.createElement(Shape, {
     name: "Shape" + shapeKey,
     color: SHAPE_COLORS[key],
     size: Math.round(size / 100 * 50)
